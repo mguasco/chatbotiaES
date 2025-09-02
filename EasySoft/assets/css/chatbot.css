@@ -1,0 +1,121 @@
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0078D7;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+#chatbot-panel {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 600px;
+  height: 550px; /* Altura fija para el panel */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  display: flex; /* Usar flexbox para organizar el contenido */
+  flex-direction: column; /* Apilar elementos verticalmente */
+}
+
+#chatbot-panel h4 {
+  margin-top: 0;
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+#chat-history {
+  flex-grow: 1; /* Permite que el historial de chat ocupe el espacio disponible */
+  overflow-y: auto; /* Agrega scroll vertical si el contenido es demasiado grande */
+  border: 1px solid #eee; /* Un borde sutil para el área del historial */
+  padding: 10px;
+  margin-bottom: 10px; /* Espacio entre el historial y el input */
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  /* Eliminamos white-space: pre-wrap; y word-wrap: break-word; del #chat-history directamente,
+     ya que ahora los divs de mensajes individuales manejarán esto. */
+}
+
+#input-container {
+  display: flex; /* Para poner el input y el botón en línea */
+  gap: 5px; /* Espacio entre el input y el botón */
+}
+
+#chatbot-panel input {
+  flex-grow: 1; /* Permite que el input crezca */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#chatbot-panel button {
+  background-color: #0078D7;
+  color: white;
+  padding: 8px 12px; /* Ajuste de padding para el botón */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+#new-chat-button {
+  background-color: #f44336; /* Un color que indique "limpiar" o "reiniciar" */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Espacio debajo del botón */
+  width: 100%; /* Para que ocupe todo el ancho del panel */
+  box-sizing: border-box; /* Incluir padding y border en el ancho total */
+}
+
+#new-chat-button:hover {
+  background-color: #d32f2f; /* Oscurecer al pasar el ratón */
+}
+
+/* --- Nuevos estilos para los mensajes de chat --- */
+.chat-message {
+  margin-bottom: 10px; /* Espacio entre mensajes */
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 90%; /* Limita el ancho del mensaje */
+  word-wrap: break-word; /* Asegura que el texto se ajuste dentro del contenedor */
+  white-space: pre-wrap; /* Mantiene saltos de línea y espacios dentro del mensaje */
+}
+
+.user-message {
+  background-color: #e0f7fa; /* Un azul claro para preguntas del usuario */
+  align-self: flex-end; /* Alinea los mensajes del usuario a la derecha (requiere flex-direction: column en el padre) */
+  color: #333;
+}
+
+.assistant-message {
+  background-color: #f0f0f0; /* Un gris claro para respuestas del asistente */
+  align-self: flex-start; /* Alinea los mensajes del asistente a la izquierda */
+  color: #333;
+}
+
+.message-label {
+  font-weight: bold;
+  margin-right: 5px; /* Espacio entre la etiqueta y el contenido */
+  color: #0056b3; /* Un color más oscuro para las etiquetas */
+}
+
+/* Asegurarse de que el contenedor de chat-history use flexbox */
+#chat-history {
+  display: flex;
+  flex-direction: column;
+  /* El resto de estilos de #chat-history (overflow-y, border, padding, etc.) se mantienen */
+}

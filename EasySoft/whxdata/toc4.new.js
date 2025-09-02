@@ -1,0 +1,1 @@
+(function() {    var toc =  [{"name":"Año fiscal","type":"item","tilePath":"assets/images/bi_calendar4-week.svg","description":"","url":"html/fiscalyears.html"},{"name":"Cierre y Apertura de ejercicios","type":"book","tilePath":"assets/images/bi_arrow-repeat.svg","key":"toc5"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();

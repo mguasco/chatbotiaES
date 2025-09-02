@@ -1,0 +1,70 @@
+# azure-container-app.yaml - Configuración declarativa para Azure Container Apps
+
+apiVersion: 2022-03-01
+location: East US
+resourceGroup: chatbot-rg
+
+properties:
+  managedEnvironmentId: /subscriptions/{subscription-id}/resourceGroups/chatbot-rg/providers/Microsoft.App/managedEnvironments/chatbot-env
+  
+  # Configuración del contenedor Chatbot
+  template:
+    containers:
+    - name: chatbot
+      image: chatbotregistry.azurecr.io/chatbot:latest
+      resources:
+        cpu: 0.5
+        memory: 1Gi
+      env:
+      - name: WEAVIATE_HOST
+        value: weaviate-app
+      - name: WEAVIATE_HTTP_PORT
+        value: "8080"
+      - name: WEAVIATE_GRPC_PORT
+        value: "50051"
+      - name: WEAVIATE_HTTP_SECURE
+        value: "false"
+      - name: WEAVIATE_GRPC_SECURE
+        value: "false"
+      - name: FLASK_HOST
+        value: "0.0.0.0"
+      - name: FLASK_PORT
+        value: "80"
+      - name: FLASK_DEBUG
+        value: "false"
+      - name: OPENAI_API_KEY
+        secretRef: openai-api-key
+      - name: BASE_URL
+        value: "https://chatbot-app.azurecontainerapps.io"
+      
+    scale:
+      minReplicas: 1
+      maxReplicas: 3
+      rules:
+      - name: http-scaling
+        http:
+          metadata:
+            concurrentRequests: "10"
+  
+  # Configuración de ingress
+  configuration:
+    ingress:
+      external: true
+      targetPort: 80
+      allowInsecure: false
+      traffic:
+      - weight: 100
+        latestRevision: true
+    
+    # Configuración de registry
+    registries:
+    - server: chatbotregistry.azurecr.io
+      username: chatbotregistry
+      passwordSecretRef: acr-password
+    
+    # Secretos
+    secrets:
+    - name: openai-api-key
+      value: "tu-api-key-aqui"
+    - name: acr-password
+      value: "acr-password-aqui"

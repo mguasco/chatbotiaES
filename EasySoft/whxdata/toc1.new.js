@@ -1,0 +1,1 @@
+(function() {    var toc =  [{"name":"Perfil de usuario","type":"item","tilePath":"assets/images/bi_person.png","description":"","url":"html/user_profile.htm"},{"name":"Primeros pasos","type":"item","tilePath":"assets/images/bi_compass.svg","description":"","url":"html/first_steps.htm"}];    window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });    })();

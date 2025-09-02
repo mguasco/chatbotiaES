@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ppfml version="2.00" project="Easysoft" type="4">
+  <contextmap>
+    
+  </contextmap>
+  <topiclist defaulttopic="html\user_profile.htm">
+    
+    <topic>
+      html\user_profile.htm
+    </topic>
+    
+    <topic>
+      html\first_steps.htm
+    </topic>
+    
+    <topic>
+      html\Ingreso_al_sistema.html
+    </topic>
+    
+    <topic>
+      html\companiespage.htm
+    </topic>
+    
+    <topic>
+      html\addDeleteModify.html
+    </topic>
+    
+    <topic>
+      html\searchOrder.html
+    </topic>
+    
+    <topic>
+      html\viewaddupdate.html
+    </topic>
+    
+    <topic>
+      html\fiscalyearaddupdate.html
+    </topic>
+    
+    <topic>
+      html\accountaddupdate.html
+    </topic>
+    
+    <topic>
+      html\accountingentryaddupdate.html
+    </topic>
+    
+    <topic>
+      html\costcenteraddupdate.html
+    </topic>
+    
+    <topic>
+      html\indexandquotesaddupdate.html
+    </topic>
+    
+    <topic>
+      html\eg_exchange_adjusting.htm
+    </topic>
+    
+    <topic>
+      html\eg_Index_adjusting.htm
+    </topic>
+    
+    <topic>
+      html\companiespage.html
+    </topic>
+    
+    <topic>
+      html\fiscalyears.html
+    </topic>
+    
+    <topic>
+      html\accountingentryclosing.html
+    </topic>
+    
+    <topic>
+      html\howtoworkinmorethanonefiscalyear.html
+    </topic>
+    
+    <topic>
+      html\accountingentryopening.html
+    </topic>
+    
+    <topic>
+      html\recastentry.html
+    </topic>
+    
+    <topic>
+      html\accounts.html
+    </topic>
+    
+    <topic>
+      html\costCenter.html
+    </topic>
+    
+    <topic>
+      html\attributes.html
+    </topic>
+    
+    <topic>
+      html\indexandquotes.html
+    </topic>
+    
+    <topic>
+      html\accountingentries.html
+    </topic>
+    
+    <topic>
+      html\accountingentriesrenumbering.html
+    </topic>
+    
+    <topic>
+      html\accountingentryadjusting.html
+    </topic>
+    
+    <topic>
+      html\balance.html
+    </topic>
+    
+    <topic>
+      html\ledgers.html
+    </topic>
+    
+    <topic>
+      html\journalreport.html
+    </topic>
+    
+    <topic>
+      html\costcenterreport.html
+    </topic>
+    
+    <topic>
+      html\views.html
+    </topic>
+    
+    <topic>
+      html\faq.html
+    </topic>
+    
+  </topiclist>
+  <filenamemap>
+    <filenameentry moniker="wh_languagetype">
+      <filename>
+        es_ES
+      </filename>
+    </filenameentry>
+    <filenameentry moniker="wh_stoplist">
+      <filename>
+        whxdata/stopwords.xml
+      </filename>
+    </filenameentry>
+    <filenameentry moniker="startpage">
+      <filename>
+        index.htm
+      </filename>
+    </filenameentry>
+        
+    <filenameentry moniker="favicon">
+      <filename>
+        C:/Centro de aprendizaje/EasySoft/Proyecto/contents/assets/images/Favicon-EasySoft.svg
+      </filename>
+    </filenameentry>
+    
+  </filenamemap>
+</ppfml>

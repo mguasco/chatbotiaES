@@ -1,0 +1,1 @@
+rh._.exports({"0":[["exaFooter"]],"1":[[" ","EasySoft"," ","v:","1.0.0.0 - 19/08/2025"," ","-"," ","Powered by"," ","-"," ","Términos y condiciones."]],"id":"0"})

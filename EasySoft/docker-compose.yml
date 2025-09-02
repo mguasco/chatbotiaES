@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  weaviate:
+    image: semitechnologies/weaviate:1.30.7
+    container_name: weaviate_chatbot_local
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      ENABLE_MODULES: ''
+      CLUSTER_HOSTNAME: 'node1'
+    volumes:
+      - weaviate_data_local:/var/lib/weaviate
+    networks:
+      - chatbot_network_local
+    restart: unless-stopped
+
+  chatbot:
+    build: .
+    container_name: flask_chatbot_local
+    ports:
+      - "5000:5000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - WEAVIATE_HOST=weaviate
+      - WEAVIATE_HTTP_PORT=8080
+      - WEAVIATE_GRPC_PORT=50051
+      - WEAVIATE_HTTP_SECURE=False
+      - WEAVIATE_GRPC_SECURE=False
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=5000
+      - FLASK_DEBUG=True
+      - BASE_URL=http://intranetqa.bas.com.ar/chatbotia
+    depends_on:
+      - weaviate
+    networks:
+      - chatbot_network_local
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+volumes:
+  weaviate_data_local:
+
+networks:
+  chatbot_network_local:
+    driver: bridge

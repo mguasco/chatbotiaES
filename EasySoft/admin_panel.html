@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Documentos</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+
+        .button.danger {
+            background: #dc3545;
+        }
+
+        .button.danger:hover {
+            background: #c82333;
+        }
+
+        .button.success {
+            background: #28a745;
+        }
+
+        .button.success:hover {
+            background: #218838;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .log-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+
+        .input-group {
+            margin: 15px 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .loading {
+            display: none;
+            color: #007bff;
+            font-style: italic;
+        }
+
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Panel de Administración</h1>
+            <h2>Gestión de Documentos Weaviate</h2>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="section">
+            <h3>📊 Estadísticas Actuales</h3>
+            <button class="button" id="stats-button">Actualizar Estadísticas</button>
+            <div id="stats-container">
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Las estadísticas se cargarán aquí -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Escanear Documentos -->
+        <div class="section">
+            <h3>🔍 Escanear Documentos</h3>
+            <p>Analiza qué archivos han cambiado sin actualizar la base de datos.</p>
+            <div class="input-group">
+                <label for="scan-path">Ruta de documentos:</label>
+                <input type="text" id="scan-path" value="C:\Local\EasySoft" placeholder="Ruta del directorio">
+            </div>
+            <button class="button" id="scan-button">Escanear Cambios</button>
+            <div class="loading" id="scan-loading">🔍 Escaneando...</div>
+            <div id="scan-results"></div>
+        </div>
+
+        <!-- Actualizar Documentos -->
+        <div class="section">
+            <h3>🔄 Actualizar Documentos</h3>
+            <p>Actualiza solo los documentos que han cambiado (recomendado).</p>
+            <div class="input-group">
+                <label for="update-path">Ruta de documentos:</label>
+                <input type="text" id="update-path" value="C:\Local\EasySoft" placeholder="Ruta del directorio">
+            </div>
+            <button class="button success" id="update-button">Actualizar Cambios</button>
+            <button class="button danger" id="rebuild-button">Reconstruir Todo</button>
+            <div class="loading" id="update-loading">⚙️ Procesando...</div>
+            <div id="update-results"></div>
+        </div>
+
+        <!-- Log de Actividades -->
+        <div class="section">
+            <h3>📋 Log de Actividades</h3>
+            <button class="button" id="clear-log-button">Limpiar Log</button>
+            <div id="activity-log" class="log-area">Esperando actividad...</div>
+        </div>
+    </div>
+
+    <script>
+        // URL base para las solicitudes API
+        const API_BASE = (() => {
+            // Obtener la ruta actual
+            const path = window.location.pathname;
+
+            // Verificar si estamos en un subpath /chatbotia
+            if (path.includes('/chatbotia')) {
+                return window.location.origin + '/chatbotia';
+            }
+
+            // De lo contrario, usar solo el origen
+            return window.location.origin;
+        })();
+
+        console.log("API_BASE configurado como:", API_BASE);
+
+        // Funciones para el panel
+        function log(message, type = 'info') {
+            const logArea = document.getElementById('activity-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+
+            if (logArea.textContent === 'Esperando actividad...') {
+                logArea.textContent = '';
+            }
+
+            logArea.textContent += logEntry;
+            logArea.scrollTop = logArea.scrollHeight;
+        }
+
+        function clearLog() {
+            document.getElementById('activity-log').textContent = 'Log limpiado...';
+        }
+
+        async function loadStats() {
+            try {
+                log('📊 Cargando estadísticas...');
+                console.log(`Intentando acceder a: ${API_BASE}/admin/documents/stats`);
+
+                const response = await fetch(`${API_BASE}/admin/documents/stats`);
+                const data = await response.json();
+
+                if (data.success) {
+                    displayStats(data.stats);
+                    log('✅ Estadísticas cargadas exitosamente');
+                } else {
+                    log(`❌ Error cargando estadísticas: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        function displayStats(stats) {
+            const statsGrid = document.getElementById('stats-grid');
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total_documents_weaviate || 0}</div>
+                    <div class="stat-label">Documentos en Weaviate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total_documents_registry || 0}</div>
+                    <div class="stat-label">Documentos en Registro</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.vectorized_documents || 0}</div>
+                    <div class="stat-label">Documentos Vectorizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.documents_with_errors || 0}</div>
+                    <div class="stat-label">Documentos con Errores</div>
+                </div>
+            `;
+        }
+
+        async function scanDocuments() {
+            const path = document.getElementById("scan-path").value;
+            const loadingEl = document.getElementById("scan-loading");
+            const resultsEl = document.getElementById("scan-results");
+
+            try {
+                loadingEl.style.display = 'block';
+                resultsEl.innerHTML = '';
+                log(`🔍 Iniciando escaneo de: ${path}`);
+                console.log(`Intentando acceder a: ${API_BASE}/admin/documents/scan con path: ${path}`);
+
+                const response = await fetch(`${API_BASE}/admin/documents/scan`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ path: path })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayScanResults(data);
+                    log(`✅ Escaneo completado. ${data.total_files_found} archivos encontrados`);
+                } else {
+                    log(`❌ Error en escaneo: ${data.error}`, 'error');
+                    resultsEl.innerHTML = `<div class="error">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                log(`❌ Error de conexión: ${error.message}`, 'error');
+                resultsEl.innerHTML = `<div class="error">Error de conexión: ${error.message}</div>`;
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        function displayScanResults(data) {
+            const resultsEl = document.getElementById('scan-results');
+            const summary = data.summary;
+
+            let html = '<h4>📊 Resumen de Cambios:</h4>';
+            html += '<div class="stats-grid">';
+
+            for (const [changeType, info] of Object.entries(summary)) {
+                const emoji = {
+                    'new': '🆕',
+                    'modified': '🔄',
+                    'deleted': '🗑️',
+                    'unchanged': '✅'
+                }[changeType] || '📄';
+
+                html += `
+                    <div class="stat-card">
+                        <div class="stat-number">${info.count}</div>
+                        <div class="stat-label">${emoji} ${changeType}</div>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+
+            // Mostrar algunos archivos de ejemplo
+            for (const [changeType, info] of Object.entries(summary)) {
+                if (info.count > 0) {
+                    html += `<h5>${changeType.toUpperCase()} (${info.count}):</h5>`;
+                    html += '<ul>';
+                    info.files.forEach(file => {
+                        html += `<li>${file}</li>`;
+                    });
+                    if (info.count > 10) {
+                        html += `<li><em>... y ${info.count - 10} más</em></li>`;
+                    }
+                    html += '</ul>';
+                }
+            }
+
+            resultsEl.innerHTML = html;
+        }
+
+        async function updateDocuments(forceRebuild = false) {
+            const path = document.getElementById("update-path").value;
+            const loadingEl = document.getElementById("update-loading");
+            const resultsEl = document.getElementById("update-results");
+
+            const action = forceRebuild ? 'Reconstrucción completa' : 'Actualización incremental';
+
+            if (forceRebuild && !confirm('⚠️ ¿Estás seguro de que quieres reconstruir toda la base de datos? Esto eliminará todos los datos actuales.')) {
+                return;
+            }
+
+            try {
+                loadingEl.style.display = 'block';
+                resultsEl.innerHTML = '';
+                log(`⚙️ Iniciando ${action.toLowerCase()} de: ${path}`);
+                console.log(`Intentando acceder a: ${API_BASE}/admin/documents/update con path: ${path} y force_rebuild: ${forceRebuild}`);
+
+                const response = await fetch(`${API_BASE}/admin/documents/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        force_rebuild: forceRebuild
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayUpdateResults(data.stats);
+                    log(`✅ ${action} completada exitosamente`);
+                    // Recargar estadísticas
+                    loadStats();
+                } else {
+                    log(`❌ Error en ${action.toLowerCase()}: ${data.error}`, 'error');
+                    resultsEl.innerHTML = `<div class="error">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                log(`❌ Error de conexión: ${error.message}`, 'error');
+                resultsEl.innerHTML = `<div class="error">Error de conexión: ${error.message}</div>`;
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        function displayUpdateResults(stats) {
+            const resultsEl = document.getElementById('update-results');
+
+            let html = '<h4>📈 Resultados de la Actualización:</h4>';
+            html += '<div class="stats-grid">';
+
+            const statLabels = {
+                'new': '🆕 Nuevos',
+                'modified': '🔄 Modificados',
+                'deleted': '🗑️ Eliminados',
+                'unchanged': '✅ Sin cambios',
+                'errors': '❌ Errores'
+            };
+
+            for (const [key, label] of Object.entries(statLabels)) {
+                if (stats.hasOwnProperty(key)) {
+                    html += `
+                        <div class="stat-card">
+                            <div class="stat-number">${stats[key]}</div>
+                            <div class="stat-label">${label}</div>
+                        </div>
+                    `;
+                }
+            }
+
+            html += '</div>';
+
+            const totalChanges = (stats.new || 0) + (stats.modified || 0) + (stats.deleted || 0);
+
+            if (totalChanges === 0) {
+                html += '<div class="success">🎉 ¡Base de datos actualizada! No hay cambios nuevos.</div>';
+            } else {
+                html += `<div class="success">🎉 ¡Actualización completada! ${totalChanges} cambios procesados.</div>`;
+            }
+
+            if (stats.errors > 0) {
+                html += '<div class="error">⚠️ Algunos archivos tuvieron errores. Revisa los logs del servidor.</div>';
+            }
+
+            resultsEl.innerHTML = html;
+        }
+
+        // Función para probar los endpoints de la API
+        async function testApiEndpoints() {
+            const endpoints = [
+                '/admin/documents/stats',
+                '/admin/documents/scan',
+                '/admin/documents/update'
+            ];
+
+            const resultsDiv = document.createElement('div');
+            resultsDiv.className = 'section';
+            resultsDiv.innerHTML = '<h3>🔍 Diagnóstico de API</h3>';
+
+            for (const endpoint of endpoints) {
+                const fullUrl = API_BASE + endpoint;
+                const endpointDiv = document.createElement('div');
+                endpointDiv.style.margin = '10px 0';
+                endpointDiv.style.padding = '10px';
+                endpointDiv.style.border = '1px solid #ddd';
+                endpointDiv.style.borderRadius = '4px';
+
+                endpointDiv.innerHTML = `<strong>${fullUrl}</strong>: Probando...`;
+                resultsDiv.appendChild(endpointDiv);
+
+                try {
+                    const options = {};
+                    if (endpoint.includes('scan') || endpoint.includes('update')) {
+                        options.method = 'POST';
+                        options.headers = { 'Content-Type': 'application/json' };
+                        options.body = JSON.stringify({ path: 'C:\\Local\\EasySoft' });
+                    }
+
+                    const response = await fetch(fullUrl, options);
+                    const contentType = response.headers.get('content-type');
+
+                    try {
+                        // Intentar leer como JSON
+                        if (contentType && contentType.includes('application/json')) {
+                            const data = await response.json();
+                            endpointDiv.innerHTML = `
+                                <strong>${fullUrl}</strong>: 
+                                <span style="color: ${response.ok ? 'green' : 'red'}">
+                                    Status ${response.status} - JSON ✓
+                                </span>
+                                <pre style="background: #f5f5f5; padding: 5px; margin-top: 5px; overflow: auto; max-height: 100px;">
+                                    ${JSON.stringify(data, null, 2)}
+                                </pre>
+                            `;
+                        } else {
+                            // No es JSON, mostrar el texto
+                            const text = await response.text();
+                            const preview = text.length > 100 ? text.substring(0, 100) + '...' : text;
+                            endpointDiv.innerHTML = `
+                                <strong>${fullUrl}</strong>: 
+                                <span style="color: red">
+                                    Status ${response.status} - No es JSON ⚠️
+                                </span>
+                                <pre style="background: #f5f5f5; padding: 5px; margin-top: 5px; overflow: auto; max-height: 100px;">
+                                    ${preview.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+                                </pre>
+                            `;
+                        }
+                    } catch (parseError) {
+                        const text = await response.text();
+                        const preview = text.length > 100 ? text.substring(0, 100) + '...' : text;
+                        endpointDiv.innerHTML = `
+                            <strong>${fullUrl}</strong>: 
+                            <span style="color: red">
+                                Status ${response.status} - Error de parseo: ${parseError.message}
+                            </span>
+                            <pre style="background: #f5f5f5; padding: 5px; margin-top: 5px; overflow: auto; max-height: 100px;">
+                                ${preview.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+                            </pre>
+                        `;
+                    }
+                } catch (error) {
+                    endpointDiv.innerHTML = `
+                        <strong>${fullUrl}</strong>: 
+                        <span style="color: red">
+                            Error de red: ${error.message}
+                        </span>
+                    `;
+                }
+            }
+
+            document.body.appendChild(resultsDiv);
+        }
+
+        // Agregar un botón de diagnóstico
+        function addDebugButton() {
+            const button = document.createElement('button');
+            button.innerText = '🔍 Diagnosticar API';
+            button.className = 'button';
+            button.style.backgroundColor = '#6c757d';
+            button.style.marginLeft = '10px';
+            button.onclick = testApiEndpoints;
+
+            const headerDiv = document.querySelector('.header');
+            if (headerDiv) {
+                headerDiv.appendChild(button);
+            }
+        }
+
+        // Adjuntar eventos a los botones cuando el DOM esté cargado
+        // Asegúrate de que estos eventos estén correctamente definidos
+        document.addEventListener('DOMContentLoaded', function () {
+            // Botón de escaneo - SOLO debe escanear, no actualizar
+            document.getElementById('scan-button').addEventListener('click', function () {
+                console.log('Botón de escaneo presionado - Solo escaneando, sin actualizar');
+                scanDocuments(); // Esta función NO debe llamar a updateDocuments
+            });
+
+            // Botón de actualización - Este SÍ actualiza
+            document.getElementById('update-button').addEventListener('click', function () {
+                console.log('Botón de actualización presionado - Actualizando documentos');
+                updateDocuments(false); // Actualizar sin reconstruir
+            });
+
+            // Botón de reconstrucción - Este reconstruye todo
+            document.getElementById('rebuild-button').addEventListener('click', function () {
+                console.log('Botón de reconstrucción presionado - Reconstruyendo todo');
+                updateDocuments(true); // Reconstruir todo
+            });
+        });
+
+        // Asegúrate de que scanDocuments SOLO escanee y no actualice
+        async function scanDocuments() {
+            const path = document.getElementById("scan-path").value;
+            const loadingEl = document.getElementById("scan-loading");
+            const resultsEl = document.getElementById("scan-results");
+
+            try {
+                loadingEl.style.display = 'block';
+                resultsEl.innerHTML = '';
+                log(`🔍 Iniciando SOLO escaneo de: ${path} (no actualiza la base de datos)`);
+
+                const response = await fetch(`${API_BASE}/admin/documents/scan`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: path })
+                });
+
+                // Resto del código...
+            } catch (error) {
+                // Manejo de errores...
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
