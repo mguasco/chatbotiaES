@@ -7,7 +7,7 @@ def main():
     """Script simple para actualizar documentos"""
     
     # Configuración por defecto
-    DEFAULT_PATH = "C:\\Local\\Easysoft"  # Cambia esto por tu ruta
+    DEFAULT_PATH = "/home/chatbotia_BAS/EasySoft"  # Cambia esto por tu ruta
     
     # Obtener ruta del argumento o usar la por defecto
     document_path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PATH
