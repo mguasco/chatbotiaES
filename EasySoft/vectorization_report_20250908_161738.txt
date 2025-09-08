@@ -1,0 +1,52 @@
+================================================================================
+REPORTE DE VECTORIZACIÓN - EasySoft ChatBot
+================================================================================
+Fecha: 2025-09-08 16:17:38
+Total documentos en Weaviate: 1712
+Total documentos en registro: 268
+Documentos vectorizados: 268
+Documentos con chunking: 0
+Total chunks creados: 0
+Documentos con errores: 0
+
+================================================================================
+DETALLE POR ARCHIVO
+================================================================================
+
+✅ ARCHIVOS VECTORIZADOS NORMALMENTE (268):
+--------------------------------------------------
+stopwords.xml: 112 chars
+whfts.xml: 7 chars
+synonym.xml: 1 chars
+Favicon-EasySoft.svg: 0 chars
+fiscalyear11.jpg: 0 chars
+companiepage01.jpg: 0 chars
+bi_pencil-square.svg: 0 chars
+bi_badge-cc.svg: 0 chars
+bi_house-door.svg: 0 chars
+saveicon.jpg: 0 chars
+fiscalyear15.jpg: 0 chars
+egEx03.jpg: 0 chars
+attribute02.jpg: 0 chars
+accountingentries09.jpg: 0 chars
+fiscalyear06.jpg: 0 chars
+attribute03.jpg: 0 chars
+bi_search.svg: 0 chars
+bi_door-open.svg: 0 chars
+indexAndQuote01.jpg: 0 chars
+fiscalyear17.jpg: 0 chars
+... y 248 más
+
+================================================================================
+ARCHIVOS MÁS GRANDES PROCESADOS
+================================================================================
+stopwords.xml: 112 chars
+whfts.xml: 7 chars
+synonym.xml: 1 chars
+Favicon-EasySoft.svg: 0 chars
+fiscalyear11.jpg: 0 chars
+companiepage01.jpg: 0 chars
+bi_pencil-square.svg: 0 chars
+bi_badge-cc.svg: 0 chars
+bi_house-door.svg: 0 chars
+saveicon.jpg: 0 chars

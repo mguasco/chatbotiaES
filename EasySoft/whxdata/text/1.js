@@ -1,1 +1,1 @@
-rh._.exports({"0":[[" ","Alta de centro de costos"]],"id":"1"})
+rh._.exports({"0":[[" ","AltaModifCuentas"]],"id":"1"})
