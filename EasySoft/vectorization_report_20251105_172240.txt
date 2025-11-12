@@ -1,0 +1,67 @@
+================================================================================
+REPORTE DE VECTORIZACIÓN - EasySoft ChatBot
+================================================================================
+Fecha: 2025-11-05 17:22:40
+Total documentos en Weaviate: 34
+Total documentos en registro: 34
+Documentos vectorizados: 34
+Documentos con chunking: 0
+Total chunks creados: 0
+Documentos con errores: 0
+
+================================================================================
+DETALLE POR ARCHIVO
+================================================================================
+
+? ARCHIVOS VECTORIZADOS NORMALMENTE (34):
+--------------------------------------------------
+faq.html: 13,806 chars
+accountingentries.html: 4,737 chars
+accounts.html: 4,361 chars
+accountingentryadjusting.html: 3,992 chars
+accountingentryclosing.html: 3,964 chars
+companiespage.htm: 3,727 chars
+searchOrder.html: 3,305 chars
+first_steps.htm: 2,938 chars
+balance.html: 2,935 chars
+fiscalyears.html: 2,707 chars
+attributes.html: 2,335 chars
+indexandquotes.html: 2,222 chars
+costCenter.html: 2,210 chars
+accountingentryopening.html: 2,082 chars
+eg_Index_adjusting.htm: 2,017 chars
+eg_exchange_adjusting.htm: 2,004 chars
+user_profile.htm: 1,809 chars
+recastentry.html: 1,655 chars
+notifications.htm: 1,613 chars
+costcenterreport.html: 1,481 chars
+... y 14 más
+
+================================================================================
+ARCHIVOS MÁS GRANDES PROCESADOS
+================================================================================
+faq.html: 13,806 chars
+accountingentries.html: 4,737 chars
+accounts.html: 4,361 chars
+accountingentryadjusting.html: 3,992 chars
+accountingentryclosing.html: 3,964 chars
+companiespage.htm: 3,727 chars
+searchOrder.html: 3,305 chars
+first_steps.htm: 2,938 chars
+balance.html: 2,935 chars
+fiscalyears.html: 2,707 chars
+
+================================================================================
+CONFIGURACIÓN DE CHUNKING UTILIZADA
+================================================================================
+MAX_TOKENS: 4000
+MAX_CHARS: 14000
+CHUNK_OVERLAP: 200
+
+Configuración por tipo de archivo:
+  .html: max_chars=12000, overlap=150
+  .css: max_chars=8000, overlap=100
+  .js: max_chars=10000, overlap=150
+  .py: max_chars=10000, overlap=200
+  .txt: max_chars=16000, overlap=250
+  .md: max_chars=16000, overlap=250

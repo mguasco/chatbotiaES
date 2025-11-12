@@ -1,0 +1,234 @@
+2025-11-05 17:22:11,953 - INFO - ?? Iniciando WeaviateManager - Log: vectorization_log_20251105_172211.log
+2025-11-05 17:22:12,223 - INFO - HTTP Request: GET http://localhost:8080/v1/.well-known/openid-configuration "HTTP/1.1 404 Not Found"
+2025-11-05 17:22:12,484 - INFO - HTTP Request: GET http://localhost:8080/v1/meta "HTTP/1.1 200 OK"
+2025-11-05 17:22:12,943 - INFO - HTTP Request: GET https://pypi.org/pypi/weaviate-client/json "HTTP/1.1 200 OK"
+2025-11-05 17:22:12,965 - INFO - HTTP Request: GET http://localhost:8080/v1/.well-known/ready "HTTP/1.1 200 OK"
+2025-11-05 17:22:12,966 - INFO - ? Conectado a Weaviate en localhost:8080
+2025-11-05 17:22:12,967 - INFO - ?? Cargados metadatos de 34 documentos
+2025-11-05 17:22:12,992 - INFO - HTTP Request: GET http://localhost:8080/v1/schema/Documento "HTTP/1.1 200 OK"
+2025-11-05 17:22:12,995 - INFO - ? Colección 'Documento' existe
+2025-11-05 17:22:12,995 - INFO - ?? Escaneando directorio: c:\local\easysoft\html
+2025-11-05 17:22:13,140 - INFO - ?? Encontrados 34 archivos
+2025-11-05 17:22:13,140 - INFO - ?? Resumen de cambios:
+2025-11-05 17:22:13,142 - INFO -    ?? Nuevos: 0
+2025-11-05 17:22:13,142 - INFO -    ?? Modificados: 34
+2025-11-05 17:22:13,142 - INFO -    ??? Eliminados: 0
+2025-11-05 17:22:13,143 - INFO -    ? Sin cambios: 0
+2025-11-05 17:22:13,176 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/fd325f0d-7747-55a9-bda8-516c8eb1e093 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:13,177 - INFO - ??? Documento eliminado: accountaddupdate.html
+2025-11-05 17:22:15,328 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:15,367 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/c08013c7-cd09-5c6e-b2da-eb0481c62f07 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:15,396 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:15,396 - INFO - ? VECTORIZADO: accountaddupdate.html - 145 chars
+2025-11-05 17:22:15,409 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/a00ea955-c5e3-5173-9c5b-cb4b8606fc6f "HTTP/1.1 204 No Content"
+2025-11-05 17:22:15,409 - INFO - ??? Documento eliminado: accountingentries.html
+2025-11-05 17:22:17,105 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:17,110 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/e9b65008-deab-5574-a6b2-e9ab22a9c470 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:17,166 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:17,166 - INFO - ? VECTORIZADO: accountingentries.html - 4737 chars
+2025-11-05 17:22:17,174 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/897eb76a-5cce-585a-b7e3-4a6eba359d42 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:17,174 - INFO - ??? Documento eliminado: accountingentriesrenumbering.html
+2025-11-05 17:22:17,794 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:17,798 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/80b1b26f-dfaf-5f64-8b5d-1487eac6a4c6 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:17,851 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:17,852 - INFO - ? VECTORIZADO: accountingentriesrenumbering.html - 1019 chars
+2025-11-05 17:22:17,857 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/727496e8-2781-513e-a30d-0fc3ffdf6b1f "HTTP/1.1 204 No Content"
+2025-11-05 17:22:17,857 - INFO - ??? Documento eliminado: accountingentryaddupdate.html
+2025-11-05 17:22:18,962 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:18,968 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/20c39e5f-e730-5449-be5e-663107d922d1 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,018 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:19,019 - INFO - ? VECTORIZADO: accountingentryaddupdate.html - 146 chars
+2025-11-05 17:22:19,027 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/85a7bfae-ea8f-5d87-8e7f-558eecf1469d "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,027 - INFO - ??? Documento eliminado: accountingentryadjusting.html
+2025-11-05 17:22:19,396 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:19,402 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/45c30f54-ca17-5849-a7f7-1c1b7187a637 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,451 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:19,452 - INFO - ? VECTORIZADO: accountingentryadjusting.html - 3992 chars
+2025-11-05 17:22:19,458 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/1c82e3e7-ab17-58e5-8a39-fa512e48a893 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,459 - INFO - ??? Documento eliminado: accountingentryclosing.html
+2025-11-05 17:22:19,838 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:19,843 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/d4c12e1b-6f5a-5b8a-9164-43aaeb5e6ba5 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,896 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:19,897 - INFO - ? VECTORIZADO: accountingentryclosing.html - 3964 chars
+2025-11-05 17:22:19,905 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/f8e8fc36-08b7-53c6-af89-41d1886baab8 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:19,905 - INFO - ??? Documento eliminado: accountingentryopening.html
+2025-11-05 17:22:20,386 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:20,391 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/5774ba35-d2ca-5f65-a9db-b2fc29e9333c "HTTP/1.1 204 No Content"
+2025-11-05 17:22:20,443 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:20,443 - INFO - ? VECTORIZADO: accountingentryopening.html - 2082 chars
+2025-11-05 17:22:20,450 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/f28ca953-8d2b-5308-ab2c-1211fe6ac842 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:20,451 - INFO - ??? Documento eliminado: accounts.html
+2025-11-05 17:22:21,244 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:21,249 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/aedf78ef-32e9-53a1-af33-f65690876d36 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:21,302 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:21,302 - INFO - ? VECTORIZADO: accounts.html - 4361 chars
+2025-11-05 17:22:21,310 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/cd9dd80d-ac9a-55bf-a19c-be330f8abebe "HTTP/1.1 204 No Content"
+2025-11-05 17:22:21,310 - INFO - ??? Documento eliminado: addDeleteModify.html
+2025-11-05 17:22:21,643 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:21,648 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/54cec473-cb13-535d-9393-bafbd6528253 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:21,700 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:21,701 - INFO - ? VECTORIZADO: addDeleteModify.html - 968 chars
+2025-11-05 17:22:21,707 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/2337156e-a1bc-5ea9-88f0-56756517ce81 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:21,708 - INFO - ??? Documento eliminado: attributes.html
+2025-11-05 17:22:22,943 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:22,948 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/809e3e46-4bb9-5f3b-9a3e-361b52cbdc72 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,001 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:23,002 - INFO - ? VECTORIZADO: attributes.html - 2335 chars
+2025-11-05 17:22:23,009 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/5999facd-f156-58c4-bc58-d862cc6979b5 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,009 - INFO - ??? Documento eliminado: balance.html
+2025-11-05 17:22:23,367 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:23,372 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/fb3309cd-36a3-5140-a803-3324a0b8d7f6 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,424 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:23,425 - INFO - ? VECTORIZADO: balance.html - 2935 chars
+2025-11-05 17:22:23,433 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/8d07cd4b-8dd0-5f23-97e1-aa550bcee697 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,434 - INFO - ??? Documento eliminado: companiespage.htm
+2025-11-05 17:22:23,730 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:23,737 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/33bac72d-9e81-5e79-971c-a26638859dcb "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,790 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:23,790 - INFO - ? VECTORIZADO: companiespage.htm - 3727 chars
+2025-11-05 17:22:23,795 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/2788845d-fdaf-57fc-9dff-6fcd96f81716 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:23,795 - INFO - ??? Documento eliminado: companiespage.html
+2025-11-05 17:22:25,271 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:25,276 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/d08d6b48-6c0d-53ac-92a7-e503d3f4ed92 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:25,327 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:25,328 - INFO - ? VECTORIZADO: companiespage.html - 144 chars
+2025-11-05 17:22:25,334 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/b6542d7f-bfa3-5cb0-b4d6-c78aee9e5b84 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:25,335 - INFO - ??? Documento eliminado: costCenter.html
+2025-11-05 17:22:26,729 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:26,735 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/05392cb2-0065-5e54-bd7a-1ecf6a1ea992 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:26,786 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:26,787 - INFO - ? VECTORIZADO: costCenter.html - 2210 chars
+2025-11-05 17:22:26,791 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/deea6028-d27d-52e2-9943-02e7907cbba9 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:26,792 - INFO - ??? Documento eliminado: costcenteraddupdate.html
+2025-11-05 17:22:27,120 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:27,125 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/32818493-7ed8-5594-b779-5552993a4be8 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:27,174 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:27,174 - INFO - ? VECTORIZADO: costcenteraddupdate.html - 153 chars
+2025-11-05 17:22:27,180 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/afc0de5f-cceb-5ee5-aa7c-db95236b0395 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:27,181 - INFO - ??? Documento eliminado: costcenterreport.html
+2025-11-05 17:22:27,515 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:27,520 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/55e376a8-0850-54bc-94cf-4a9edc5f32f1 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:27,571 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:27,572 - INFO - ? VECTORIZADO: costcenterreport.html - 1481 chars
+2025-11-05 17:22:27,577 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/94766920-7982-51c0-9f3b-d2913805593c "HTTP/1.1 204 No Content"
+2025-11-05 17:22:27,578 - INFO - ??? Documento eliminado: eg_exchange_adjusting.htm
+2025-11-05 17:22:28,514 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:28,519 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/7d55f9f0-e574-577e-a8d3-ad8a4f9b41ae "HTTP/1.1 204 No Content"
+2025-11-05 17:22:28,571 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:28,572 - INFO - ? VECTORIZADO: eg_exchange_adjusting.htm - 2004 chars
+2025-11-05 17:22:28,578 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/476548e9-c349-5572-9316-98a1d1751d76 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:28,579 - INFO - ??? Documento eliminado: eg_Index_adjusting.htm
+2025-11-05 17:22:29,063 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:29,070 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/8f3dcde8-237f-5777-9aba-e677b6101f05 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:29,122 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:29,123 - INFO - ? VECTORIZADO: eg_Index_adjusting.htm - 2017 chars
+2025-11-05 17:22:29,131 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/d6c0a307-c0ea-5457-a1bf-4133e2aca35e "HTTP/1.1 204 No Content"
+2025-11-05 17:22:29,131 - INFO - ??? Documento eliminado: faq.html
+2025-11-05 17:22:30,592 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:30,597 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/0c870373-3f03-50a5-909c-0fd1395267ad "HTTP/1.1 204 No Content"
+2025-11-05 17:22:30,647 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:30,648 - INFO - ? VECTORIZADO: faq.html - 13806 chars
+2025-11-05 17:22:30,656 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/349fd77e-a665-52aa-abb6-261f46bea18c "HTTP/1.1 204 No Content"
+2025-11-05 17:22:30,657 - INFO - ??? Documento eliminado: first_steps.htm
+2025-11-05 17:22:31,904 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:31,910 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/b3e47414-5973-5243-937d-befbf4ac4a05 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:31,962 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:31,962 - INFO - ? VECTORIZADO: first_steps.htm - 2938 chars
+2025-11-05 17:22:31,969 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/05249add-3091-5fae-a28a-c7326b0479c9 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:31,969 - INFO - ??? Documento eliminado: fiscalyearaddupdate.html
+2025-11-05 17:22:32,295 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:32,300 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/d61f4a61-cad7-5a35-b012-2fc1f6777ed0 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:32,348 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:32,349 - INFO - ? VECTORIZADO: fiscalyearaddupdate.html - 146 chars
+2025-11-05 17:22:32,355 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/f4a65bd6-26d6-587c-b052-32603a4dae09 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:32,356 - INFO - ??? Documento eliminado: fiscalyears.html
+2025-11-05 17:22:32,699 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:32,703 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/91097430-30ac-50a5-bc8c-40578ed7d8fc "HTTP/1.1 204 No Content"
+2025-11-05 17:22:32,755 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:32,756 - INFO - ? VECTORIZADO: fiscalyears.html - 2707 chars
+2025-11-05 17:22:32,762 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/cd02fc8a-019c-53f1-aa85-6c852e2e9928 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:32,762 - INFO - ??? Documento eliminado: howtoworkinmorethanonefiscalyear.html
+2025-11-05 17:22:33,131 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,135 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/1000a202-e297-5965-b880-ac805b626964 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,186 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,187 - INFO - ? VECTORIZADO: howtoworkinmorethanonefiscalyear.html - 1372 chars
+2025-11-05 17:22:33,193 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/fbbfdc3c-8956-5d8f-8575-153f38f343bd "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,194 - INFO - ??? Documento eliminado: indexandquotes.html
+2025-11-05 17:22:33,536 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,540 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/59c4eeff-6631-5dd2-b1b3-114195b44b25 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,591 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,592 - INFO - ? VECTORIZADO: indexandquotes.html - 2222 chars
+2025-11-05 17:22:33,597 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/fefda2cd-fbe7-5d63-8983-b961536e9beb "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,598 - INFO - ??? Documento eliminado: indexandquotesaddupdate.html
+2025-11-05 17:22:33,923 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,927 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/5bf3a891-c393-5548-abb7-cdfcd502f759 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,978 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:33,978 - INFO - ? VECTORIZADO: indexandquotesaddupdate.html - 161 chars
+2025-11-05 17:22:33,983 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/bfc21eb2-67ed-5bab-9111-872568fe3adb "HTTP/1.1 204 No Content"
+2025-11-05 17:22:33,984 - INFO - ??? Documento eliminado: Ingreso_al_sistema.html
+2025-11-05 17:22:34,304 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:34,309 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/17c53e39-9078-5eaf-b477-c2e105804a29 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:34,358 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:34,359 - INFO - ? VECTORIZADO: Ingreso_al_sistema.html - 1344 chars
+2025-11-05 17:22:34,364 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/630efab4-f016-5445-8f04-880ff93325a5 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:34,364 - INFO - ??? Documento eliminado: journalreport.html
+2025-11-05 17:22:35,337 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:35,342 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/07a29959-f620-598b-b296-fe0977ed8943 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:35,394 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:35,394 - INFO - ? VECTORIZADO: journalreport.html - 1149 chars
+2025-11-05 17:22:35,399 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/706f053d-f0c7-5213-8bc8-7a278f323c6c "HTTP/1.1 204 No Content"
+2025-11-05 17:22:35,400 - INFO - ??? Documento eliminado: ledgers.html
+2025-11-05 17:22:35,742 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:35,747 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/5886ada4-9898-5056-b7bb-d7a7de78d9c0 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:35,796 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:35,797 - INFO - ? VECTORIZADO: ledgers.html - 1142 chars
+2025-11-05 17:22:35,802 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/c4a24df7-9461-5cff-b17e-69bddd219a04 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:35,802 - INFO - ??? Documento eliminado: notifications.htm
+2025-11-05 17:22:36,306 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:36,312 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/89cfdc01-1eb8-5e29-a003-5c7af944fb00 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:36,360 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:36,361 - INFO - ? VECTORIZADO: notifications.htm - 1613 chars
+2025-11-05 17:22:36,366 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/4c5de581-a74c-5089-9f20-5dd6c63e6c84 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:36,366 - INFO - ??? Documento eliminado: recastentry.html
+2025-11-05 17:22:38,388 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:38,392 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/167c97a9-2829-53c0-9ec6-f29761f0b05d "HTTP/1.1 204 No Content"
+2025-11-05 17:22:38,440 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:38,441 - INFO - ? VECTORIZADO: recastentry.html - 1655 chars
+2025-11-05 17:22:38,446 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/c5ca51ea-86ce-5282-87be-3a0c5c9b39f9 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:38,447 - INFO - ??? Documento eliminado: searchOrder.html
+2025-11-05 17:22:39,000 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:39,006 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/669879c3-94c9-5cea-88a6-925dc89fe1ea "HTTP/1.1 204 No Content"
+2025-11-05 17:22:39,059 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:39,060 - INFO - ? VECTORIZADO: searchOrder.html - 3305 chars
+2025-11-05 17:22:39,065 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/b3365c1d-3b4d-563c-8f17-18cfcca908df "HTTP/1.1 204 No Content"
+2025-11-05 17:22:39,065 - INFO - ??? Documento eliminado: user_profile.htm
+2025-11-05 17:22:39,524 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:39,530 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/1f914613-86b0-59dd-b7c9-d083d84d6d53 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:39,580 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:39,581 - INFO - ? VECTORIZADO: user_profile.htm - 1809 chars
+2025-11-05 17:22:39,585 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/535944a6-970c-559b-8d69-0d0d13d153a3 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:39,586 - INFO - ??? Documento eliminado: viewaddupdate.html
+2025-11-05 17:22:39,952 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:39,957 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/ac855be3-9b97-59ca-85f1-b71d97edd74b "HTTP/1.1 204 No Content"
+2025-11-05 17:22:40,008 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:40,009 - INFO - ? VECTORIZADO: viewaddupdate.html - 143 chars
+2025-11-05 17:22:40,014 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/33fae37a-be1a-52a8-befc-a8134253ed64 "HTTP/1.1 204 No Content"
+2025-11-05 17:22:40,014 - INFO - ??? Documento eliminado: views.html
+2025-11-05 17:22:40,522 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-11-05 17:22:40,529 - INFO - HTTP Request: DELETE http://localhost:8080/v1/objects/Documento/938fcbac-1c7c-5fda-bdef-bbe2f66359de "HTTP/1.1 204 No Content"
+2025-11-05 17:22:40,581 - INFO - HTTP Request: POST http://localhost:8080/v1/objects "HTTP/1.1 200 OK"
+2025-11-05 17:22:40,582 - INFO - ? VECTORIZADO: views.html - 1318 chars
+2025-11-05 17:22:40,584 - INFO - ?? Metadatos guardados para 34 documentos
+2025-11-05 17:22:40,585 - INFO - ============================================================
+2025-11-05 17:22:40,585 - INFO - ?? RESUMEN FINAL DE PROCESAMIENTO
+2025-11-05 17:22:40,585 - INFO - ============================================================
+2025-11-05 17:22:40,585 - INFO - ?? Documentos nuevos: 0
+2025-11-05 17:22:40,585 - INFO - ?? Documentos modificados: 34
+2025-11-05 17:22:40,585 - INFO - ??? Documentos eliminados: 0
+2025-11-05 17:22:40,585 - INFO - ? Sin cambios: 0
+2025-11-05 17:22:40,586 - INFO - ? Errores: 0
+2025-11-05 17:22:40,586 - INFO - ?? Archivos con chunking: 0
+2025-11-05 17:22:40,586 - INFO - ?? Total de chunks: 0
+2025-11-05 17:22:40,586 - INFO - ?? Documentos vectorizados: 34
+2025-11-05 17:22:40,605 - INFO - ?? Reporte generado: vectorization_report_20251105_172240.txt
+2025-11-05 17:22:40,627 - INFO - ?? Conexión a Weaviate cerrada

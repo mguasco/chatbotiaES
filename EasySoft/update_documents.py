@@ -24,7 +24,7 @@ def print_help():
     print("   --report    : Solo genera reporte detallado")
     print("   --help      : Muestra esta ayuda")
     print()
-    print("📂 RUTA POR DEFECTO: /home/chatbotia_BAS/EasySoft")
+    print("📂 RUTA POR DEFECTO: C:\\Local\\EasySoft")
     print("   Para cambiar: python update_documents.py /tu/ruta/personalizada")
     print()
 
@@ -32,7 +32,7 @@ def main():
     """Script principal con chunking inteligente"""
     
     # Configuración
-    DEFAULT_PATH = "/home/chatbotia_BAS/EasySoft"
+    DEFAULT_PATH = "c:\\local\\easysoft\\html"
     
     # Procesar argumentos
     args = sys.argv[1:]

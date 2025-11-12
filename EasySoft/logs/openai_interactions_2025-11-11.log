@@ -1,0 +1,52 @@
+2025-11-11 17:38:07,750 - INFO - OpenAI Request - Session: None
+2025-11-11 17:38:07,752 - DEBUG - Full request: {"messages_count": 5, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una empresa)"}, "kwargs_keys": []}
+2025-11-11 17:38:23,010 - INFO - OpenAI Response - Session: None
+2025-11-11 17:38:23,011 - DEBUG - Response preview: {"text": "No encontré información específica disponible para esa pregunta. escribí explícitamente la palabra 'ayuda' si querés ser derivado a un consultor."}
+2025-11-11 17:39:24,187 - INFO - OpenAI Request - Session: None
+2025-11-11 17:39:24,191 - DEBUG - Full request: {"messages_count": 7, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una empresa)"}, "kwargs_keys": []}
+2025-11-11 17:39:40,746 - INFO - OpenAI Response - Session: None
+2025-11-11 17:39:40,747 - DEBUG - Response preview: {"text": "No encontré información específica disponible para esa pregunta. escribí explícitamente la palabra 'ayuda' si querés ser derivado a un consultor."}
+2025-11-11 17:39:54,825 - INFO - OpenAI Request - Session: None
+2025-11-11 17:39:54,825 - DEBUG - Full request: {"messages_count": 9, "last_message": {"role": "assistant", "content": "(consulta normalizada: que definir una cuenta)"}, "kwargs_keys": []}
+2025-11-11 17:40:23,677 - INFO - OpenAI Response - Session: None
+2025-11-11 17:40:23,678 - DEBUG - Response preview: {"text": "No puedo responder a esa pregunta basándome en la información disponible."}
+2025-11-11 17:40:23,682 - INFO - OpenAI Request - Session: None
+2025-11-11 17:40:23,683 - DEBUG - Full request: {"messages_count": 8, "last_message": {"role": "user", "content": "que defino una cuenta?"}, "kwargs_keys": []}
+2025-11-11 17:40:43,902 - INFO - OpenAI Response - Session: None
+2025-11-11 17:40:43,904 - DEBUG - Response preview: {"text": "Al dar de alta una cuenta debés completar/definir, según el contexto:\n\n- Código y nombre de la cuenta.  \n- Saldo normal (saldo habitual de la cuenta).  \n- Centro de costos: indicar “Sin centro de cost..."}
+2025-11-11 17:41:25,059 - INFO - OpenAI Request - Session: None
+2025-11-11 17:41:25,060 - DEBUG - Full request: {"messages_count": 3, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una cuenta)"}, "kwargs_keys": []}
+2025-11-11 17:41:43,212 - INFO - OpenAI Response - Session: None
+2025-11-11 17:41:43,213 - DEBUG - Response preview: {"text": "Para crear una cuenta en EasySoft:\n\n- Entrá a la sección Cuentas; verás las cuentas ya definidas.\n- Para incorporar un nuevo dato apretá el botón \"Agregar cuenta\", completá los datos que corresponden ..."}
+2025-11-11 17:46:31,408 - INFO - OpenAI Request - Session: None
+2025-11-11 17:46:31,409 - DEBUG - Full request: {"messages_count": 5, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una empresa)"}, "kwargs_keys": []}
+2025-11-11 17:46:56,763 - INFO - OpenAI Response - Session: None
+2025-11-11 17:46:56,763 - DEBUG - Response preview: {"text": "Para crear una empresa en EasySoft:\n\n- Ingresá a la sección \"Empresas y usuarios\". Si tu usuario tiene rol de owner o admin podés crear empresas.\n- Al crear la empresa, ingresá la razón social y el no..."}
+2025-11-11 17:52:04,887 - INFO - OpenAI Request - Session: None
+2025-11-11 17:52:04,889 - DEBUG - Full request: {"messages_count": 3, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una empresa)"}, "kwargs_keys": []}
+2025-11-11 17:52:19,387 - INFO - OpenAI Response - Session: None
+2025-11-11 17:52:19,388 - DEBUG - Response preview: {"text": "Para crear una empresa en EasySoft seguí estos pasos (según la documentación):\n\n1. Ingresá a tu perfil y presioná el ícono para crear la empresa.  \n2. Se abrirá la ventana para dar de alta la empresa...."}
+2025-11-11 17:52:42,751 - INFO - OpenAI Request - Session: None
+2025-11-11 17:52:42,752 - DEBUG - Full request: {"messages_count": 3, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una empresa)"}, "kwargs_keys": []}
+2025-11-11 17:52:57,941 - INFO - OpenAI Response - Session: None
+2025-11-11 17:52:57,942 - DEBUG - Response preview: {"text": "Para crear una empresa en EasySoft:\n\n- Ingresá a Empresas y usuarios (o desde tu perfil, presionando el ícono correspondiente).\n- Tenés que tener rol owner o admin para poder crear empresas.\n- Al ingr..."}
+2025-11-11 19:03:50,619 - INFO - OpenAI Request - Session: None
+2025-11-11 19:03:50,620 - DEBUG - Full request: {"messages_count": 3, "last_message": {"role": "assistant", "content": "(consulta normalizada: que tipo de asientos puedo cargar)"}, "kwargs_keys": []}
+2025-11-11 19:03:58,785 - INFO - OpenAI Response - Session: None
+2025-11-11 19:03:58,786 - DEBUG - Response preview: {"text": "En la solapa \"General\" al crear un asiento podés seleccionar el campo \"Tipo\". Los tipos disponibles son:\n- Normal (es el que más vas a usar)\n- Ajuste\n- Apertura\n- Cierre\n- Redistribución\n\nAdemás: los ..."}
+2025-11-11 19:25:39,317 - INFO - OpenAI Request - Session: None
+2025-11-11 19:25:39,318 - DEBUG - Full request: {"messages_count": 3, "last_message": {"role": "assistant", "content": "(consulta normalizada: diferencia entre atributo y centro de costos)"}, "kwargs_keys": []}
+2025-11-11 19:25:59,766 - INFO - OpenAI Response - Session: None
+2025-11-11 19:25:59,767 - DEBUG - Response preview: {"text": "A continuación las diferencias según la información disponible:\n\n- Propósito principal\n  - Atributo: es una característica que se asocia a cuentas para agruparlas y poder realizar operaciones o emitir..."}
+2025-11-11 19:26:20,093 - INFO - OpenAI Request - Session: None
+2025-11-11 19:26:20,094 - DEBUG - Full request: {"messages_count": 7, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una cuenta)"}, "kwargs_keys": []}
+2025-11-11 19:26:49,295 - INFO - OpenAI Response - Session: None
+2025-11-11 19:26:49,296 - DEBUG - Response preview: {"text": "No puedo responder a esa pregunta basándome en la información disponible."}
+2025-11-11 19:26:49,301 - INFO - OpenAI Request - Session: None
+2025-11-11 19:26:49,301 - DEBUG - Full request: {"messages_count": 6, "last_message": {"role": "user", "content": "como creo una cuenta?"}, "kwargs_keys": []}
+2025-11-11 19:27:09,570 - INFO - OpenAI Response - Session: None
+2025-11-11 19:27:09,571 - DEBUG - Response preview: {"text": "1) Entrá a la sección Cuentas.  \n2) Presioná \"Agregar cuenta\".  \n3) Completá Código y Nombre.  \n4) Seleccioná el \"Saldo normal\".  \n5) Si la cuenta se imputa por centros de costos, presioná el botón \"S..."}
+2025-11-11 19:30:37,953 - INFO - OpenAI Request - Session: None
+2025-11-11 19:30:37,954 - DEBUG - Full request: {"messages_count": 13, "last_message": {"role": "assistant", "content": "(consulta normalizada: como crear una cuenta)"}, "kwargs_keys": []}
+2025-11-11 19:30:54,748 - INFO - OpenAI Response - Session: None
+2025-11-11 19:30:54,749 - DEBUG - Response preview: {"text": "1) Entrá a la sección Cuentas.  \n2) Presioná \"Agregar cuenta\".  \n3) Completá Código y Nombre.  \n4) Seleccioná el \"Saldo normal\".  \n5) Si la cuenta se imputa por centros de costos, presioná el botón \"S..."}

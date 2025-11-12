@@ -16,20 +16,77 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 BASE_DIR = os.path.abspath(os.getcwd())
 app = Flask(__name__, static_url_path='/chatbotia/static')
 
-# CONFIGURACIÓN CORS CORREGIDA - Debe estar EXACTAMENTE así:
+# ? CONFIGURACIÓN CORS MEJORADA PARA GITHUB PAGES
 CORS(app, 
      resources={
          r"/chatbotia/*": {
-             "origins": "*",
+             "origins": [
+                 "https://bas-ar.github.io",      # Tu GitHub Pages
+                 "http://localhost:*",             # Desarrollo local
+                 "http://127.0.0.1:*",            # Desarrollo local
+                 "https://intranetqa.bas.com.ar", # Tu servidor
+                 "*"                               # Fallback para desarrollo
+             ],
              "methods": ["GET", "POST", "OPTIONS"],
-             "allow_headers": ["Content-Type", "X-Session-ID", "Authorization"]
+             "allow_headers": ["Content-Type", "X-Session-ID", "Authorization", "Accept", "Origin"]
          },
          r"/chat": {
-             "origins": "*", 
+             "origins": [
+                 "https://bas-ar.github.io",
+                 "http://localhost:*",
+                 "http://127.0.0.1:*", 
+                 "https://intranetqa.bas.com.ar",
+                 "*"
+             ],
              "methods": ["GET", "POST", "OPTIONS"],
-             "allow_headers": ["Content-Type", "X-Session-ID", "Authorization"]
+             "allow_headers": ["Content-Type", "X-Session-ID", "Authorization", "Accept", "Origin"]
+         },
+         r"/clear_chat_history": {
+             "origins": [
+                 "https://bas-ar.github.io",
+                 "http://localhost:*",
+                 "http://127.0.0.1:*",
+                 "https://intranetqa.bas.com.ar",
+                 "*"
+             ],
+             "methods": ["GET", "POST", "OPTIONS"],
+             "allow_headers": ["Content-Type", "X-Session-ID", "Authorization", "Accept", "Origin"]
          }
      })
+
+# ? MIDDLEWARE ADICIONAL PARA ASEGURAR CORS
+@app.after_request
+def after_request(response):
+    origin = request.headers.get('Origin')
+    allowed_origins = [
+        'https://bas-ar.github.io',
+        'http://localhost:3000',
+        'http://localhost:5000',
+        'http://127.0.0.1:5000',
+        'https://intranetqa.bas.com.ar'
+    ]
+    
+    if origin in allowed_origins:
+        response.headers['Access-Control-Allow-Origin'] = origin
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Session-ID, Authorization, Accept, Origin'
+        response.headers['Access-Control-Allow-Credentials'] = 'false'
+    
+    return response
+
+# ? MANEJO EXPLÍCITO DE OPTIONS REQUESTS
+@app.route('/chat', methods=['OPTIONS'])
+@app.route('/clear_chat_history', methods=['OPTIONS'])
+@app.route('/chatbotia/chat', methods=['OPTIONS'])
+@app.route('/chatbotia/clear_chat_history', methods=['OPTIONS'])
+def handle_options():
+    response = jsonify({'status': 'ok'})
+    origin = request.headers.get('Origin')
+    if origin in ['https://bas-ar.github.io', 'http://localhost:3000', 'https://intranetqa.bas.com.ar']:
+        response.headers['Access-Control-Allow-Origin'] = origin
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Session-ID, Authorization'
+    return response
 
 # Inicializar servicios
 weaviate_service = WeaviateService()
@@ -46,7 +103,7 @@ def favicon():
     """Maneja solicitudes de favicon"""
     return send_from_directory(BASE_DIR, 'Favicon-EasySoft.svg', mimetype='image/svg+xml')
 
-# TambiÃ©n agregar una ruta de bienvenida
+# También agregar una ruta de bienvenida
 @app.route('/api/info')
 def api_info():
     """Informacion de la API"""
@@ -155,7 +212,7 @@ def chat():
         return jsonify(response_data)
 
     except Exception as e:
-        logging.error(f"Error general en /chatbotia/chat: {e}")
+        logging.error(f"Error general en /chat: {e}")
         return jsonify({'error': f'Error del servidor: {str(e)}'}), 500
 
 @app.route('/clear_chat_history', methods=['POST'])
